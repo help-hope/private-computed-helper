@@ -27,26 +27,27 @@
     "precommit": "lint-staged"
   },
   "dependencies": {
+    "@babel/core": "7.15.0",
+    "@babel/plugin-transform-runtime": "7.15.0",
+    "@babel/preset-env": "7.15.0",
+    "@babel/register": "7.15.3",
     "axios": "0.21.1",
+    "babel-plugin-module-resolver": "4.1.0",
     "exceljs": "^4.3.0",
     "lodash": "^4.17.21",
     "moment": "^2.29.4",
+    "path-browserify": "^1.0.1",
     "path-to-regexp": "6.2.0",
-    "@babel/core": "7.15.0",
-    "babel-plugin-module-resolver": "4.1.0",
-    "@babel/plugin-transform-runtime": "7.15.0",
-    "@babel/preset-env": "7.15.0",
-    "@babel/register": "7.15.3"
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "umi": "3.5.20",
-    "antd": "4.9.1",
-    "ahooks": "2.10.9",
     "@ant-design/icons": "^4.7.0",
     "@ant-design/pro-layout": "6.24.3",
     "@commitlint/cli": "7.5.2",
     "@commitlint/config-conventional": "7.5.0",
     "@umijs/preset-react": "1.8.30",
+    "ahooks": "2.10.9",
+    "antd": "^4.10.0",
     "app-builder-lib": "^23.3.2",
     "babel-eslint": "10.1.0",
     "classnames": "2.3.1",
@@ -78,7 +79,8 @@
     "react-router-dom": "5.1.2",
     "stylelint": "9.10.1",
     "stylelint-config-prettier": "4.0.0",
-    "stylelint-config-standard": "18.3.0"
+    "stylelint-config-standard": "18.3.0",
+    "umi": "3.5.20"
   },
   "lint-staged": {
     "*.{js,jsx}": [

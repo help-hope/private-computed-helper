@@ -12,6 +12,7 @@ export default function InsertExpect() {
   const handleClick = useCallback(async () => {
     try {
       const { file, 工资收入, 材料费用, 制造费用, 营业收入 } = await form.validateFields();
+      console.log("file", file);
       const file_path = file[0].originFileObj.path;
       const save_result = await ipcRenderer.invoke("inverse_operation", { file_path, 工资收入, 材料费用, 制造费用, 营业收入 });
       if (save_result === "success") {
@@ -28,7 +29,7 @@ export default function InsertExpect() {
     <Form form={form}>
       <Row justify="center">
         <Space size={20} direction="vertical" style={{ width: "50%" }}>
-          <Form.Item rules={[{ required: true, message: "请上传带有发票数据的电子表格" }]} name="file" valuePropName="fileList" getValueFromEvent={({ fileList }) => fileList}>
+          <Form.Item rules={[{ required: true, message: "请上传带有发票数据的电子表格" }]} name="file">
             <UploadDragger name="file" />
           </Form.Item>
           <Row gutter={20}>

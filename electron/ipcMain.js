@@ -1,7 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import fs from "fs";
 import path from "path";
-import moment from "moment";
 import { round } from "lodash";
 import { promisify } from "util";
 import { ipcMain, dialog } from "electron";
@@ -52,19 +51,19 @@ ipcMain.handle("inverse_operation", async (event, args) => {
     }
   });
 
-  const 工资比率 = 工资收入 / 营业收入;
+  const 工资比率 = round(工资收入 / 营业收入, 11);
   gongzi_data_array.forEach((current_cell_id) => {
     const current_value = worksheet.getCell(current_cell_id).value;
     worksheet.getCell(current_cell_id).value = round(current_value * 工资比率, 2);
   });
 
-  const 材料费用比率 = 材料费用 / 营业收入;
+  const 材料费用比率 = round(材料费用 / 营业收入, 11);
   cailiao_data_array.forEach((current_cell_id) => {
     const current_value = worksheet.getCell(current_cell_id).value;
     worksheet.getCell(current_cell_id).value = round(current_value * 材料费用比率, 2);
   });
 
-  const 制造费用比率 = 制造费用 / 营业收入;
+  const 制造费用比率 = round(制造费用 / 营业收入, 11);
   zhizaofeiyong_data_array.forEach((current_cell_id) => {
     const current_value = worksheet.getCell(current_cell_id).value;
     worksheet.getCell(current_cell_id).value = round(current_value * 制造费用比率, 2);
@@ -81,7 +80,7 @@ ipcMain.handle("inverse_operation", async (event, args) => {
 
   const { canceled, filePath } = await dialog.showSaveDialog({
     title: "保存计算结果",
-    defaultPath: `${moment().format("YYYY年MM月DD日HH时mm分ss秒")}-计算结果.xlsx`,
+    defaultPath: `太明成本计算结果.xlsx`,
   });
 
   if (!canceled) {
