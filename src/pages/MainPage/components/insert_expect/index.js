@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import { ipcRenderer } from "electron";
 import React, { useCallback } from "react";
 import { Row, Col, Form, Space, Input, Button, message } from "antd";
